@@ -1,0 +1,66 @@
+
+// @import "../../node_modules/bootstrap/scss/functions";
+// @import "../../node_modules/bootstrap/scss/variables";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+$primary: #0A157A;
+$font-family-base: Inter, sans-serif;
+
+
+
+
+
+$spacers: (
+  0: 0,
+  1: 2px,
+  2: 4px,
+  3: 8px,
+  4: 16px,
+  5: 30px,
+  6: 60px
+  
+);
+
+$btn-padding-y-lg: 16px;
+$btn-padding-x-lg: 24px;
+$btn-border-radius: 8px;
+$btn-font-size-lg: 1rem;
+$btn-line-height: 24px;
+
+$card-border-radius: 12px;
+
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+$neutral50: #FBFBFB;
+$gray5: #A8A6AC;
+$gray6: #625F68;
+$gray7: #2A282F;
+$neutrals: (
+	"neutral-50":$neutral50,
+	"neutral-600":#74768F,
+	"neutral-900":#252630,
+
+);
+
+
+$all-colors: map-merge-multiple( $neutrals, $blues, $indigos, $purples, $pinks, $reds, $oranges, $yellows, $greens, $teals, $cyans);
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "color": map-merge(
+      map-get($utilities, "color"),
+      (
+        values: map-merge(
+          map-get(map-get($utilities, "color"), "values"),
+          (
+            $all-colors
+          ),
+        ),
+      ),
+    ),
+  )
+);
+
+@import "../../node_modules/bootstrap/scss/utilities/api";
+@import "./custom.sass"
